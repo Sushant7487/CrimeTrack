@@ -227,7 +227,7 @@ const Signup = () => {
 
               {/* ID Proof Upload */}
               <div className="col-span-2">
-                  <label className="block text-gray-400 text-xs md:text-sm mb-1">Upload ID Proof (Aadhaar/PAN/Badge)</label>
+                  <label className="block text-gray-400 text-xs md:text-sm mb-1">Passport ID/Profile Photo</label>
                   <div className="relative border border-dashed border-gray-600 bg-gray-800/50 rounded-lg p-3 md:p-4 text-center cursor-pointer hover:border-blue-500 transition-all group">
                       <input type="file" accept="image/*" onChange={handleFileChange} className="absolute inset-0 w-full h-full opacity-0 cursor-pointer" required />
                       <div className="flex flex-col items-center justify-center text-gray-400 group-hover:text-white">

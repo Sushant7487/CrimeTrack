@@ -4,7 +4,7 @@
 // import { toast } from "react-hot-toast";
 // import axios from "axios";
 // import { FaPhoneAlt, FaCheckDouble, FaExclamationCircle, FaShieldAlt } from "react-icons/fa";
-// import ContactPage from "../common/ContactPage"; 
+
 
 // const EmergencyScreen = ({ onCancel }) => {
 //   const [loading, setLoading] = useState(false);
@@ -173,8 +173,6 @@
 // };
 
 // export default EmergencyScreen;
-
-
 
 
 
