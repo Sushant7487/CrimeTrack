@@ -938,7 +938,7 @@
 // } from "react-icons/fa";
 
 // // Helper for Image URL
-// const BASE_URL = "http://localhost:5000"; 
+// const BASE_URL = "https://crimetrack-api.onrender.com"; 
 // const getImageUrl = (path) => path?.startsWith("http") ? path : `${BASE_URL}/${path?.replace(/\\/g, "/")}`;
 
 // const ScheduleMeeting = () => {

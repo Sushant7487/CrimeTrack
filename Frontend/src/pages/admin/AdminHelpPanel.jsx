@@ -19,10 +19,10 @@
 //     const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
 //     try {
 //       if (view === "tickets") {
-//         const { data } = await axios.get("http://localhost:5000/api/support/admin/help", config);
+//         const { data } = await axios.get("https://crimetrack-api.onrender.com/api/support/admin/help", config);
 //         setTickets(data);
 //       } else {
-//         const { data } = await axios.get("http://localhost:5000/api/support/admin/feedback", config);
+//         const { data } = await axios.get("https://crimetrack-api.onrender.com/api/support/admin/feedback", config);
 //         setFeedbacks(data);
 //       }
 //     } catch (err) { toast.error("Fetch failed"); }
@@ -32,7 +32,7 @@
 //     if (!replyText) return toast.error("Enter reply!");
 //     try {
 //       const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-//       await axios.put(`http://localhost:5000/api/support/admin/help/${ticketId}/reply`, 
+//       await axios.put(`https://crimetrack-api.onrender.com/api/support/admin/help/${ticketId}/reply`, 
 //         { replyMessage: replyText }, 
 //         { headers: { Authorization: `Bearer ${userInfo.token}` } }
 //       );

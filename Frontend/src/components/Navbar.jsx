@@ -1503,7 +1503,7 @@
 //     if (userInfo && userInfo._id) {
 //         try {
 //             // Notify backend about logout (triggers Last Seen update & Email Alert)
-//             await axios.post("http://localhost:5000/api/users/logout", { userId: userInfo._id });
+//             await axios.post("https://crimetrack-api.onrender.com/api/users/logout", { userId: userInfo._id });
 //         } catch (error) {
 //             console.error("Logout Sync Error:", error);
 //         }
@@ -1808,7 +1808,7 @@
 //     if (userInfo && userInfo._id) {
 //         try {
 //             // Notify backend about logout (triggers Last Seen update & Email Alert)
-//             await axios.post("http://localhost:5000/api/users/logout", { userId: userInfo._id });
+//             await axios.post("https://crimetrack-api.onrender.com/api/users/logout", { userId: userInfo._id });
 //         } catch (error) {
 //             console.error("Logout Sync Error:", error);
 //         }
@@ -2135,7 +2135,7 @@
 //     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 //     if (userInfo && userInfo._id) {
 //         try {
-//             await axios.post("http://localhost:5000/api/users/logout", { userId: userInfo._id });
+//             await axios.post("https://crimetrack-api.onrender.com/api/users/logout", { userId: userInfo._id });
 //         } catch (error) {
 //             console.error("Logout Sync Error:", error);
 //         }
@@ -2499,7 +2499,7 @@
 //     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 //     if (userInfo && userInfo._id) {
 //         try {
-//             await axios.post("http://localhost:5000/api/users/logout", { userId: userInfo._id });
+//             await axios.post("https://crimetrack-api.onrender.com/api/users/logout", { userId: userInfo._id });
 //         } catch (error) {
 //             console.error("Logout Sync Error:", error);
 //         }
@@ -2859,7 +2859,7 @@ const Navbar = () => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     if (userInfo && userInfo._id) {
         try {
-            await axios.post("http://localhost:5000/api/users/logout", { userId: userInfo._id });
+            await axios.post("https://crimetrack-api.onrender.com/api/users/logout", { userId: userInfo._id });
         } catch (error) {
             console.error("Logout Sync Error:", error);
         }

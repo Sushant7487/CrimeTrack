@@ -23,7 +23,7 @@
 // import sirenSoundFile from "/siren.mp3"; 
 // import notifSoundFile from "/notification.mp3";
 
-// const ENDPOINT = "http://localhost:5000"; 
+// const ENDPOINT = "https://crimetrack-api.onrender.com"; 
 
 // const PoliceDashboard = ({ defaultTab = "menu" }) => {
 //   const [activeTab, setActiveTab] = useState(defaultTab);
@@ -114,7 +114,7 @@
 //         try {
 //             if (!userInfo?.token) return;
 //             const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//             const { data } = await axios.get("http://localhost:5000/api/crime/all", config);
+//             const { data } = await axios.get("https://crimetrack-api.onrender.com/api/crime/all", config);
             
 //             const pendingAlert = data.find(c => 
 //                 c.isSOS === true && 
@@ -278,7 +278,7 @@
 // import sirenSoundFile from "/siren.mp3"; 
 // import notifSoundFile from "/notification.mp3";
 
-// const ENDPOINT = "http://localhost:5000"; 
+// const ENDPOINT = "https://crimetrack-api.onrender.com"; 
 
 // const PoliceDashboard = ({ defaultTab = "menu" }) => {
 //   const [activeTab, setActiveTab] = useState(defaultTab);
@@ -367,7 +367,7 @@
 //         try {
 //             if (!userInfo?.token) return;
 //             const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//             const { data } = await axios.get("http://localhost:5000/api/crime/all", config);
+//             const { data } = await axios.get("https://crimetrack-api.onrender.com/api/crime/all", config);
             
 //             const pendingAlert = data.find(c => 
 //                 c.isSOS === true && 
@@ -539,7 +539,7 @@
 // import sirenSoundFile from "/siren.mp3"; 
 // import notifSoundFile from "/notification.mp3";
 
-// const ENDPOINT = "http://localhost:5000"; 
+// const ENDPOINT = "https://crimetrack-api.onrender.com"; 
 
 // const PoliceDashboard = ({ defaultTab = "menu" }) => {
 //   const [activeTab, setActiveTab] = useState(defaultTab);
@@ -637,7 +637,7 @@
 //         try {
 //             if (!userInfo?.token) return;
 //             const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//             const { data } = await axios.get("http://localhost:5000/api/crime/all", config);
+//             const { data } = await axios.get("https://crimetrack-api.onrender.com/api/crime/all", config);
             
 //             const pendingAlert = data.find(c => 
 //                 c.isSOS === true && 
@@ -788,7 +788,7 @@
 // import sirenSoundFile from "/siren.mp3"; 
 // import notifSoundFile from "/notification.mp3";
 
-// const ENDPOINT = "http://localhost:5000"; 
+// const ENDPOINT = "https://crimetrack-api.onrender.com"; 
 
 // const PoliceDashboard = ({ defaultTab = "menu" }) => {
 //   const [activeTab, setActiveTab] = useState(defaultTab);
@@ -961,7 +961,7 @@
 // import sirenSoundFile from "/siren.mp3"; 
 // import notifSoundFile from "/notification.mp3";
 
-// const ENDPOINT = "http://localhost:5000"; 
+// const ENDPOINT = "https://crimetrack-api.onrender.com"; 
 
 // const PoliceDashboard = ({ defaultTab = "menu" }) => {
 //   const [activeTab, setActiveTab] = useState(defaultTab);
@@ -1140,7 +1140,7 @@
 // import sirenSoundFile from "/siren.mp3"; 
 // import notifSoundFile from "/notification.mp3";
 
-// const ENDPOINT = "http://localhost:5000"; 
+// const ENDPOINT = "https://crimetrack-api.onrender.com"; 
 
 // const PoliceDashboard = ({ defaultTab = "menu" }) => {
 //   const [activeTab, setActiveTab] = useState(defaultTab);
@@ -1310,7 +1310,7 @@
 // // ✅ IMPORT BACKGROUND
 // import dashboardBg from '../assets/signup-bg.png';
 
-// const ENDPOINT = "http://localhost:5000"; 
+// const ENDPOINT = "https://crimetrack-api.onrender.com"; 
 
 // const PoliceDashboard = ({ defaultTab = "menu" }) => {
 //   const [activeTab, setActiveTab] = useState(defaultTab);
@@ -1477,7 +1477,7 @@
 // // ✅ IMPORT BACKGROUND
 // import dashboardBg from '../assets/signup-bg.png';
 
-// const ENDPOINT = "http://localhost:5000"; 
+// const ENDPOINT = "https://crimetrack-api.onrender.com"; 
 
 // const PoliceDashboard = ({ defaultTab = "menu" }) => {
 //   const [activeTab, setActiveTab] = useState(defaultTab);
@@ -1707,7 +1707,7 @@
 // // ✅ IMPORT BACKGROUND
 // import dashboardBg from '../assets/signup-bg.png';
 
-// const ENDPOINT = "http://localhost:5000"; 
+// const ENDPOINT = "https://crimetrack-api.onrender.com"; 
 
 // const PoliceDashboard = ({ defaultTab = "menu" }) => {
 //   const [activeTab, setActiveTab] = useState(defaultTab);
@@ -1935,7 +1935,7 @@
 // // ✅ IMPORT BACKGROUND
 // import dashboardBg from '../assets/signup-bg.png';
 
-// const ENDPOINT = "http://localhost:5000"; 
+// const ENDPOINT = "https://crimetrack-api.onrender.com"; 
 
 // const PoliceDashboard = ({ defaultTab = "menu" }) => {
 //   const [activeTab, setActiveTab] = useState(defaultTab);
@@ -2138,7 +2138,7 @@
 // // Assets
 // import dashboardBg from '../assets/signup-bg.png';
 
-// const ENDPOINT = "http://localhost:5000"; 
+// const ENDPOINT = "https://crimetrack-api.onrender.com"; 
 
 // const PoliceDashboard = ({ defaultTab = "menu" }) => {
 //   const [activeTab, setActiveTab] = useState(defaultTab);
@@ -2364,7 +2364,7 @@ import SupportLayout from "../components/support/SupportLayout";
 // Assets
 import dashboardBg from '../assets/dashboard-bg.png';
 
-const ENDPOINT = "http://localhost:5000"; 
+const ENDPOINT = "https://crimetrack-api.onrender.com"; 
 
 const PoliceDashboard = ({ defaultTab = "menu" }) => {
   const [activeTab, setActiveTab] = useState(defaultTab);

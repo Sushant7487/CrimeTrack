@@ -14,7 +14,7 @@ const ContactOfficers = () => {
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
       
       // ✅ Hits your existing Backend API
-      const { data } = await axios.get("http://localhost:5000/api/users/officers", config);
+      const { data } = await axios.get("https://crimetrack-api.onrender.com/api/users/officers", config);
       setOfficers(data);
       setLoading(false);
     } catch (error) {

@@ -28,7 +28,7 @@
 //               try {
 //                   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 //                   const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//                   const { data } = await axios.get(`http://localhost:5000/api/crime/track/${sosData._id}`, config);
+//                   const { data } = await axios.get(`https://crimetrack-api.onrender.com/api/crime/track/${sosData._id}`, config);
                   
 //                   if (data.assignedOfficer && data.assignedOfficer !== "Not Assigned") {
 //                       setAssignedStatus(data);
@@ -75,7 +75,7 @@
 //           };
 
 //           const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//           const { data } = await axios.post("http://localhost:5000/api/crime/sos", payload, config);
+//           const { data } = await axios.post("https://crimetrack-api.onrender.com/api/crime/sos", payload, config);
           
 //           setSosData(data);
 //           setSosSent(true);
@@ -211,7 +211,7 @@
 //               try {
 //                   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 //                   const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//                   const { data } = await axios.get(`http://localhost:5000/api/crime/track/${sosData._id}`, config);
+//                   const { data } = await axios.get(`https://crimetrack-api.onrender.com/api/crime/track/${sosData._id}`, config);
 
 //                   if (data.assignedOfficer && data.assignedOfficer !== "Not Assigned") {
 //                       setAssignedStatus(data);
@@ -258,7 +258,7 @@
 //           };
 
 //           const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//           const { data } = await axios.post("http://localhost:5000/api/crime/sos", payload, config);
+//           const { data } = await axios.post("https://crimetrack-api.onrender.com/api/crime/sos", payload, config);
 
 //           setSosData(data);
 //           setSosSent(true);
@@ -373,7 +373,7 @@ import { FaPhoneAlt, FaCheckDouble, FaExclamationCircle, FaShieldAlt } from "rea
 import { io } from "socket.io-client";
 
 // ✅ 2. DEFINE ENDPOINT
-const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = "https://crimetrack-api.onrender.com";
 
 const EmergencyScreen = ({ onCancel }) => {
   const [loading, setLoading] = useState(false);
@@ -405,7 +405,7 @@ const EmergencyScreen = ({ onCancel }) => {
               try {
                   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
                   const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-                  const { data } = await axios.get(`http://localhost:5000/api/crime/track/${sosData._id}`, config);
+                  const { data } = await axios.get(`https://crimetrack-api.onrender.com/api/crime/track/${sosData._id}`, config);
 
                   if (data.assignedOfficer && data.assignedOfficer !== "Not Assigned") {
                       setAssignedStatus(data);
@@ -454,7 +454,7 @@ const EmergencyScreen = ({ onCancel }) => {
           const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
           
           // 1. Save to DB
-          const { data } = await axios.post("http://localhost:5000/api/crime/sos", payload, config);
+          const { data } = await axios.post("https://crimetrack-api.onrender.com/api/crime/sos", payload, config);
 
           // ✅ 4. EMIT SOCKET EVENT (Yeh Missing Tha)
           // Jaise hi DB main save ho, Server ko bolo "SOS Aaya Hai"

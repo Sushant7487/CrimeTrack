@@ -34,7 +34,7 @@ const PastCrimes = () => {
       try {
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
         // Fetching ALL history
-        const { data } = await axios.get("http://localhost:5000/api/crime/history", config);
+        const { data } = await axios.get("https://crimetrack-api.onrender.com/api/crime/history", config);
         
         // 1. Filter ONLY "Closed" cases immediately (as per requirement)
         const closedCases = Array.isArray(data) ? data.filter(r => r.status === "Closed") : [];

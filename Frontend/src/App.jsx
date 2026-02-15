@@ -180,7 +180,7 @@
 //     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     
 //     if (userInfo && userInfo._id) {
-//       const socket = io("http://localhost:5000"); // Connect to backend
+//       const socket = io("https://crimetrack-api.onrender.com"); // Connect to backend
 //       socket.emit("register_officer", userInfo._id); // Register presence
 
 //       return () => {
@@ -338,7 +338,7 @@
 //     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     
 //     if (userInfo && userInfo._id) {
-//       const socket = io("http://localhost:5000"); // Connect to backend
+//       const socket = io("https://crimetrack-api.onrender.com"); // Connect to backend
 //       socket.emit("register_officer", userInfo._id); // Register presence
 
 //       return () => {
@@ -508,7 +508,7 @@
 //     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     
 //     if (userInfo && userInfo._id) {
-//       const socket = io("http://localhost:5000"); // Connect to backend
+//       const socket = io("https://crimetrack-api.onrender.com"); // Connect to backend
 //       socket.emit("register_officer", userInfo._id); // Register presence
 
 //       return () => {
@@ -675,7 +675,7 @@
 //     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     
 //     if (userInfo && userInfo._id) {
-//       const socket = io("http://localhost:5000"); // Connect to backend
+//       const socket = io("https://crimetrack-api.onrender.com"); // Connect to backend
 //       socket.emit("register_officer", userInfo._id); // Register presence
 
 //       return () => {
@@ -856,7 +856,7 @@
 //     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     
 //     if (userInfo && userInfo._id) {
-//       const socket = io("http://localhost:5000"); // Connect to backend
+//       const socket = io("https://crimetrack-api.onrender.com"); // Connect to backend
 //       socket.emit("register_officer", userInfo._id); // Register presence
 
 //       return () => {
@@ -1047,7 +1047,7 @@
 //     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     
 //     if (userInfo && userInfo._id) {
-//       const socket = io("http://localhost:5000"); 
+//       const socket = io("https://crimetrack-api.onrender.com"); 
 //       socket.emit("register_officer", userInfo._id); 
 
 //       return () => {
@@ -1239,7 +1239,7 @@
 //     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     
 //     if (userInfo && userInfo._id) {
-//       const socket = io("http://localhost:5000"); 
+//       const socket = io("https://crimetrack-api.onrender.com"); 
 //       socket.emit("register_officer", userInfo._id); 
 
 //       return () => {
@@ -1435,7 +1435,7 @@
 //     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     
 //     if (userInfo && userInfo._id) {
-//       const socket = io("http://localhost:5000"); 
+//       const socket = io("https://crimetrack-api.onrender.com"); 
 //       socket.emit("register_officer", userInfo._id); 
 
 //       return () => {
@@ -1647,7 +1647,7 @@
 //     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     
 //     if (userInfo && userInfo._id) {
-//       const socket = io("http://localhost:5000"); 
+//       const socket = io("https://crimetrack-api.onrender.com"); 
 //       socket.emit("register_officer", userInfo._id); 
 
 //       return () => {
@@ -1868,7 +1868,7 @@ const App = () => {
     const userInfo = JSON.parse(localStorage.getItem("userInfo"));
     
     if (userInfo && userInfo._id) {
-      const socket = io("http://localhost:5000"); 
+      const socket = io("https://crimetrack-api.onrender.com"); 
       socket.emit("register_officer", userInfo._id); 
 
       return () => {

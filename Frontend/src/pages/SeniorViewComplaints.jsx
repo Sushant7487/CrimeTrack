@@ -32,7 +32,7 @@
 //       setSeniorJurisdiction(myStations);
       
 //       // 1. Fetch All Complaints
-//       const { data: complaintData } = await axios.get("http://localhost:5000/api/crime/all", config);
+//       const { data: complaintData } = await axios.get("https://crimetrack-api.onrender.com/api/crime/all", config);
       
 //       // 2. Filter based on jurisdiction (DGP sees all)
 //       const filteredComplaints = complaintData.filter(complaint => 
@@ -40,7 +40,7 @@
 //       );
       
 //       // 3. Fetch Officers for Assignment dropdown
-//       const { data: officerData } = await axios.get("http://localhost:5000/api/users/officers", config);
+//       const { data: officerData } = await axios.get("https://crimetrack-api.onrender.com/api/users/officers", config);
       
 //       setComplaints(filteredComplaints);
 //       setOfficers(officerData);
@@ -73,7 +73,7 @@
 //       try {
 //         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
 //         let payload = selectedValue === "SELF" ? { action: "assign_self" } : { assignedOfficer: selectedValue };
-//         await axios.put(`http://localhost:5000/api/crime/update/${complaintId}`, payload, config);
+//         await axios.put(`https://crimetrack-api.onrender.com/api/crime/update/${complaintId}`, payload, config);
 //         toast.success("Officer Assigned Successfully");
 //         fetchData(); // Refresh list after assignment
 //       } catch (error) { toast.error("Assignment Failed"); }
@@ -274,7 +274,7 @@ const SeniorViewComplaints = ({ onFileRecord }) => {
       setSeniorJurisdiction(myStations);
       
       // 1. Fetch All Complaints
-      const { data: complaintData } = await axios.get("http://localhost:5000/api/crime/all", config);
+      const { data: complaintData } = await axios.get("https://crimetrack-api.onrender.com/api/crime/all", config);
       
       // 2. Filter based on jurisdiction (DGP sees all)
       const filteredComplaints = complaintData.filter(complaint => 
@@ -282,7 +282,7 @@ const SeniorViewComplaints = ({ onFileRecord }) => {
       );
       
       // 3. Fetch Officers for Assignment dropdown
-      const { data: officerData } = await axios.get("http://localhost:5000/api/users/officers", config);
+      const { data: officerData } = await axios.get("https://crimetrack-api.onrender.com/api/users/officers", config);
       
       setComplaints(filteredComplaints);
       setOfficers(officerData);
@@ -315,7 +315,7 @@ const SeniorViewComplaints = ({ onFileRecord }) => {
       try {
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
         let payload = selectedValue === "SELF" ? { action: "assign_self" } : { assignedOfficer: selectedValue };
-        await axios.put(`http://localhost:5000/api/crime/update/${complaintId}`, payload, config);
+        await axios.put(`https://crimetrack-api.onrender.com/api/crime/update/${complaintId}`, payload, config);
         toast.success("Officer Assigned Successfully");
         fetchData(); // Refresh list after assignment
       } catch (error) { toast.error("Assignment Failed"); }

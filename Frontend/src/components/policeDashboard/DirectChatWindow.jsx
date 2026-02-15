@@ -8,9 +8,9 @@
 //   FaFilePdf, FaFileAlt, FaTimes, FaCheck, FaCheckDouble 
 // } from "react-icons/fa";
 // import { toast } from "react-hot-toast";
-// import { BASE_URL } from "../config"; // Or use "http://localhost:5000" if no config file
+// import { BASE_URL } from "../config"; // Or use "https://crimetrack-api.onrender.com" if no config file
 
-// const ENDPOINT = "http://localhost:5000";
+// const ENDPOINT = "https://crimetrack-api.onrender.com";
 // let socket;
 
 // const DirectChatWindow = () => {
@@ -387,7 +387,7 @@ import {
 import { toast } from "react-hot-toast";
 import { BASE_URL } from "../config"; 
 
-const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = "https://crimetrack-api.onrender.com";
 let socket;
 
 const DirectChatWindow = () => {

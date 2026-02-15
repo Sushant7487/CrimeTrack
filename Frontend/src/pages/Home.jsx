@@ -28,7 +28,7 @@
 //   useEffect(() => {
 //     const fetchStats = async () => {
 //       try {
-//         const { data } = await axios.get("http://localhost:5000/api/crime/stats");
+//         const { data } = await axios.get("https://crimetrack-api.onrender.com/api/crime/stats");
 //         setStats({
 //           total: data.totalComplaints || 0,
 //           resolved: data.resolvedCases || 0,

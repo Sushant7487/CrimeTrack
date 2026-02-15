@@ -33,7 +33,7 @@
 //               try {
 //                   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 //                   const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//                   const { data } = await axios.get(`http://localhost:5000/api/crime/track/${sosData._id}`, config);
+//                   const { data } = await axios.get(`https://crimetrack-api.onrender.com/api/crime/track/${sosData._id}`, config);
                   
 //                   if (data.assignedOfficer && data.assignedOfficer !== "Not Assigned") {
 //                       setAssignedStatus(data);
@@ -79,7 +79,7 @@
 //           };
 
 //           const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//           const { data } = await axios.post("http://localhost:5000/api/crime/sos", payload, config);
+//           const { data } = await axios.post("https://crimetrack-api.onrender.com/api/crime/sos", payload, config);
           
 //           setSosData(data);
 //           setSosSent(true);
@@ -255,7 +255,7 @@
 // //               try {
 // //                   const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 // //                   const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-// //                   const { data } = await axios.get(`http://localhost:5000/api/crime/track/${sosData._id}`, config);
+// //                   const { data } = await axios.get(`https://crimetrack-api.onrender.com/api/crime/track/${sosData._id}`, config);
                   
 // //                   if (data.assignedOfficer && data.assignedOfficer !== "Not Assigned") {
 // //                       setAssignedStatus(data);
@@ -302,7 +302,7 @@
 
 // //           const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
 // //           // Make sure this matches your backend route
-// //           const { data } = await axios.post("http://localhost:5000/api/crime/sos", payload, config);
+// //           const { data } = await axios.post("https://crimetrack-api.onrender.com/api/crime/sos", payload, config);
           
 // //           setSosData(data);
 // //           setSosSent(true);
@@ -447,7 +447,7 @@
 // import { FaCheckDouble, FaExclamationCircle, FaShieldAlt, FaSyncAlt } from "react-icons/fa";
 // import { io } from "socket.io-client";
 
-// const ENDPOINT = "http://localhost:5000";
+// const ENDPOINT = "https://crimetrack-api.onrender.com";
 
 // const EmergencyScreen = ({ onCancel }) => {
 //   const [loading, setLoading] = useState(false);
@@ -637,7 +637,7 @@
 // import { FaCheckDouble, FaExclamationCircle, FaShieldAlt, FaSyncAlt } from "react-icons/fa";
 // import { io } from "socket.io-client";
 
-// const ENDPOINT = "http://localhost:5000";
+// const ENDPOINT = "https://crimetrack-api.onrender.com";
 
 // const EmergencyScreen = ({ onCancel }) => {
 //   const [loading, setLoading] = useState(false);
@@ -840,7 +840,7 @@
 // } from "react-icons/fa";
 // import { io } from "socket.io-client";
 
-// const ENDPOINT = "http://localhost:5000";
+// const ENDPOINT = "https://crimetrack-api.onrender.com";
 
 // const EmergencyScreen = ({ onCancel }) => {
 //   // --- STATE & LOGIC (UNCHANGED) ---
@@ -1173,7 +1173,7 @@ import {
 } from "react-icons/fa";
 import { io } from "socket.io-client";
 
-const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = "https://crimetrack-api.onrender.com";
 
 // --- HELPER: HAVERSINE FORMULA (Distance Calculation) ---
 const calculateDistance = (lat1, lon1, lat2, lon2) => {

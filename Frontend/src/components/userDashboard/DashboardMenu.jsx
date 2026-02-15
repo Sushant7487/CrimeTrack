@@ -1562,7 +1562,7 @@ import {
   FaBroadcastTower, FaSatelliteDish // ✅ Added Icons for Widget
 } from "react-icons/fa";
 
-const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = "https://crimetrack-api.onrender.com";
 
 // --- HELPER: HAVERSINE FORMULA (Distance Calculation) ---
 const calculateDistance = (lat1, lon1, lat2, lon2) => {

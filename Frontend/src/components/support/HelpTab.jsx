@@ -13,7 +13,7 @@
 //   const fetchTickets = async () => {
 //     try {
 //       const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-//       const { data } = await axios.get("http://localhost:5000/api/support/help/my-tickets", {
+//       const { data } = await axios.get("https://crimetrack-api.onrender.com/api/support/help/my-tickets", {
 //         headers: { Authorization: `Bearer ${userInfo.token}` },
 //       });
 //       setTickets(data);
@@ -38,7 +38,7 @@
 
 //     try {
 //       const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-//       await axios.post("http://localhost:5000/api/support/help", formData, {
+//       await axios.post("https://crimetrack-api.onrender.com/api/support/help", formData, {
 //         headers: { Authorization: `Bearer ${userInfo.token}`, "Content-Type": "multipart/form-data" },
 //       });
 //       toast.success("Ticket Created Successfully!");

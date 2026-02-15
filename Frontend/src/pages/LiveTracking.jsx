@@ -18,7 +18,7 @@
 //   shadowUrl: markerShadow,
 // });
 
-// const ENDPOINT = "http://localhost:5000";
+// const ENDPOINT = "https://crimetrack-api.onrender.com";
 
 // // ✅ Component to Auto-Center Map on Move
 // const RecenterAutomatically = ({ lat, lng }) => {
@@ -178,7 +178,7 @@
 //   shadowSize: [41, 41]
 // });
 
-// const ENDPOINT = "http://localhost:5000";
+// const ENDPOINT = "https://crimetrack-api.onrender.com";
 
 // // ✅ Component to Handle Map FlyTo Animations
 // const MapController = ({ targetLocation, viewMode }) => {
@@ -429,7 +429,7 @@ const policeIcon = new L.Icon({
   shadowSize: [41, 41]
 });
 
-const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = "https://crimetrack-api.onrender.com";
 
 // ✅ 2. MAP CONTROLLER (Smooth Animation)
 const MapController = ({ targetLocation }) => {

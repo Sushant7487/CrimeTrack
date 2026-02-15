@@ -8,7 +8,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { FaPaperPlane, FaUserShield, FaCheckDouble, FaSmile, FaArrowLeft, FaLock, FaEllipsisV, FaPaperclip, FaPhoneAlt } from "react-icons/fa";
 
 // Socket Setup
-const socket = io("http://localhost:5000", {
+const socket = io("https://crimetrack-api.onrender.com", {
   transports: ["websocket", "polling"],
   withCredentials: true,
 });
@@ -24,7 +24,7 @@ const ChatInterface = ({ complaintId, currentUser, recipientId, recipientName, r
       try {
         const userInfo = JSON.parse(localStorage.getItem("userInfo"));
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-        const { data } = await axios.get(`http://localhost:5000/api/messages/${complaintId}`, config);
+        const { data } = await axios.get(`https://crimetrack-api.onrender.com/api/messages/${complaintId}`, config);
         const filtered = data.filter(msg => {
             if (recipientId) {
                 return (msg.senderId === recipientId) || (msg.recipientId === recipientId) || (msg.senderId === currentUser._id && !msg.recipientId);
@@ -76,7 +76,7 @@ const ChatInterface = ({ complaintId, currentUser, recipientId, recipientName, r
     try {
       const userInfo = JSON.parse(localStorage.getItem("userInfo"));
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-      await axios.post("http://localhost:5000/api/messages", messageData, config);
+      await axios.post("https://crimetrack-api.onrender.com/api/messages", messageData, config);
     } catch (e) {}
   };
 

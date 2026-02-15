@@ -46,7 +46,7 @@
 //   const fetchComplaintDetails = async () => {
 //     try {
 //       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//       const { data } = await axios.get("http://localhost:5000/api/crime/all", config);
+//       const { data } = await axios.get("https://crimetrack-api.onrender.com/api/crime/all", config);
 //       const found = Array.isArray(data) ? data.find(c => c._id === id) : null;
       
 //       if (found) {
@@ -151,7 +151,7 @@
 //     if (!checkAssignment(complaint)) return toast.error("Permission Denied.");
 //     try {
 //       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//       const { data } = await axios.put(`http://localhost:5000/api/crime/update/${complaint._id}`, { importantNoteText: noteContent }, config);
+//       const { data } = await axios.put(`https://crimetrack-api.onrender.com/api/crime/update/${complaint._id}`, { importantNoteText: noteContent }, config);
 //       setComplaint(data);
 //       setIsEditingNote(false);
 //       toast.success("Internal Note Saved");
@@ -168,7 +168,7 @@
 //     if (!remarkText.trim()) return toast.error("Remark is required!");
 //     try {
 //       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//       await axios.put(`http://localhost:5000/api/crime/update/${complaint._id}`, { status: statusModal.newStatus, remark: remarkText }, config);
+//       await axios.put(`https://crimetrack-api.onrender.com/api/crime/update/${complaint._id}`, { status: statusModal.newStatus, remark: remarkText }, config);
 //       toast.success(`Case Status Updated`);
 //       setStatusModal({ show: false, newStatus: "" });
 //       fetchComplaintDetails();
@@ -697,7 +697,7 @@
 //   const fetchComplaintDetails = async () => {
 //     try {
 //       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//       const { data } = await axios.get("http://localhost:5000/api/crime/all", config);
+//       const { data } = await axios.get("https://crimetrack-api.onrender.com/api/crime/all", config);
 //       const found = Array.isArray(data) ? data.find(c => c._id === id) : null;
       
 //       if (found) {
@@ -821,7 +821,7 @@
 //     if (!checkAssignment(complaint)) return toast.error("Permission Denied.");
 //     try {
 //       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//       const { data } = await axios.put(`http://localhost:5000/api/crime/update/${complaint._id}`, { importantNoteText: noteContent }, config);
+//       const { data } = await axios.put(`https://crimetrack-api.onrender.com/api/crime/update/${complaint._id}`, { importantNoteText: noteContent }, config);
 //       setComplaint(data);
 //       setIsEditingNote(false);
 //       toast.success("Internal Note Saved");
@@ -838,7 +838,7 @@
 //     if (!remarkText.trim()) return toast.error("Remark is required!");
 //     try {
 //       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//       await axios.put(`http://localhost:5000/api/crime/update/${complaint._id}`, { status: statusModal.newStatus, remark: remarkText }, config);
+//       await axios.put(`https://crimetrack-api.onrender.com/api/crime/update/${complaint._id}`, { status: statusModal.newStatus, remark: remarkText }, config);
 //       toast.success(`Case Status Updated`);
 //       setStatusModal({ show: false, newStatus: "" });
 //       fetchComplaintDetails();
@@ -1370,7 +1370,7 @@ const CaseReview = () => {
   const fetchComplaintDetails = async () => {
     try {
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-      const { data } = await axios.get("http://localhost:5000/api/crime/all", config);
+      const { data } = await axios.get("https://crimetrack-api.onrender.com/api/crime/all", config);
       const found = Array.isArray(data) ? data.find(c => c._id === id) : null;
       
       if (found) {
@@ -1494,7 +1494,7 @@ const CaseReview = () => {
     if (!checkAssignment(complaint)) return toast.error("Permission Denied.");
     try {
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-      const { data } = await axios.put(`http://localhost:5000/api/crime/update/${complaint._id}`, { importantNoteText: noteContent }, config);
+      const { data } = await axios.put(`https://crimetrack-api.onrender.com/api/crime/update/${complaint._id}`, { importantNoteText: noteContent }, config);
       setComplaint(data);
       setIsEditingNote(false);
       toast.success("Internal Note Saved");
@@ -1511,7 +1511,7 @@ const CaseReview = () => {
     if (!remarkText.trim()) return toast.error("Remark is required!");
     try {
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-      await axios.put(`http://localhost:5000/api/crime/update/${complaint._id}`, { status: statusModal.newStatus, remark: remarkText }, config);
+      await axios.put(`https://crimetrack-api.onrender.com/api/crime/update/${complaint._id}`, { status: statusModal.newStatus, remark: remarkText }, config);
       toast.success(`Case Status Updated`);
       setStatusModal({ show: false, newStatus: "" });
       fetchComplaintDetails();

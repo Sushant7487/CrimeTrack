@@ -42,7 +42,7 @@
 //       setLoading(true);
       
 //       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//       const { data } = await axios.get("http://localhost:5000/api/crime/myreports", config);
+//       const { data } = await axios.get("https://crimetrack-api.onrender.com/api/crime/myreports", config);
 //       setMyComplaints(data);
 //       // Small delay to show spinner interaction
 //       setTimeout(() => setLoading(false), 500);
@@ -60,7 +60,7 @@
 //         const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 //         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
         
-//         await axios.get(`http://localhost:5000/api/crime/track/${trackId}`, config);
+//         await axios.get(`https://crimetrack-api.onrender.com/api/crime/track/${trackId}`, config);
         
 //         // Navigate to Case File
 //         navigate(`/user/case-file/${trackId}`);
@@ -251,7 +251,7 @@
 //       setLoading(true);
       
 //       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//       const { data } = await axios.get("http://localhost:5000/api/crime/myreports", config);
+//       const { data } = await axios.get("https://crimetrack-api.onrender.com/api/crime/myreports", config);
 //       setMyComplaints(data);
 //       // Small delay to show spinner interaction
 //       setTimeout(() => setLoading(false), 500);
@@ -269,7 +269,7 @@
 //         const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 //         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
         
-//         await axios.get(`http://localhost:5000/api/crime/track/${trackId}`, config);
+//         await axios.get(`https://crimetrack-api.onrender.com/api/crime/track/${trackId}`, config);
         
 //         // Navigate to Case File
 //         navigate(`/user/case-file/${trackId}`);
@@ -468,7 +468,7 @@
 //       setLoading(true);
       
 //       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//       const { data } = await axios.get("http://localhost:5000/api/crime/myreports", config);
+//       const { data } = await axios.get("https://crimetrack-api.onrender.com/api/crime/myreports", config);
 //       setMyComplaints(data);
 //       // Small delay to show spinner interaction
 //       setTimeout(() => setLoading(false), 500);
@@ -486,7 +486,7 @@
 //         const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 //         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
         
-//         await axios.get(`http://localhost:5000/api/crime/track/${trackId}`, config);
+//         await axios.get(`https://crimetrack-api.onrender.com/api/crime/track/${trackId}`, config);
         
 //         // Navigate to Case File
 //         navigate(`/user/case-file/${trackId}`);
@@ -688,7 +688,7 @@
 //       setLoading(true);
       
 //       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//       const { data } = await axios.get("http://localhost:5000/api/crime/myreports", config);
+//       const { data } = await axios.get("https://crimetrack-api.onrender.com/api/crime/myreports", config);
 //       setMyComplaints(data);
 //       // Small delay to show spinner interaction
 //       setTimeout(() => setLoading(false), 500);
@@ -706,7 +706,7 @@
 //         const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 //         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
         
-//         await axios.get(`http://localhost:5000/api/crime/track/${trackId}`, config);
+//         await axios.get(`https://crimetrack-api.onrender.com/api/crime/track/${trackId}`, config);
         
 //         // Navigate to Case File
 //         navigate(`/user/case-file/${trackId}`);
@@ -915,7 +915,7 @@
 //       setLoading(true);
       
 //       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//       const { data } = await axios.get("http://localhost:5000/api/crime/myreports", config);
+//       const { data } = await axios.get("https://crimetrack-api.onrender.com/api/crime/myreports", config);
 //       setMyComplaints(data);
 //       setTimeout(() => setLoading(false), 500);
 //     } catch (error) { 
@@ -932,7 +932,7 @@
 //         const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 //         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
         
-//         await axios.get(`http://localhost:5000/api/crime/track/${trackId}`, config);
+//         await axios.get(`https://crimetrack-api.onrender.com/api/crime/track/${trackId}`, config);
         
 //         navigate(`/user/case-file/${trackId}`);
 //       } catch (error) { toast.error("Invalid ID or Permission Denied"); }
@@ -1131,7 +1131,7 @@
 //       setLoading(true);
       
 //       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//       const { data } = await axios.get("http://localhost:5000/api/crime/myreports", config);
+//       const { data } = await axios.get("https://crimetrack-api.onrender.com/api/crime/myreports", config);
 //       setMyComplaints(data);
 //       setTimeout(() => setLoading(false), 500);
 //     } catch (error) { 
@@ -1147,7 +1147,7 @@
 //         const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 //         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
         
-//         await axios.get(`http://localhost:5000/api/crime/track/${trackId}`, config);
+//         await axios.get(`https://crimetrack-api.onrender.com/api/crime/track/${trackId}`, config);
         
 //         navigate(`/user/case-file/${trackId}`);
 //       } catch (error) { toast.error("Invalid ID or Permission Denied"); }
@@ -1385,7 +1385,7 @@
 //       setLoading(true);
       
 //       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//       const { data } = await axios.get("http://localhost:5000/api/crime/myreports", config);
+//       const { data } = await axios.get("https://crimetrack-api.onrender.com/api/crime/myreports", config);
 //       setMyComplaints(data);
 //       setTimeout(() => setLoading(false), 500);
 //     } catch (error) { 
@@ -1401,7 +1401,7 @@
 //         const userInfo = JSON.parse(localStorage.getItem("userInfo"));
 //         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
         
-//         await axios.get(`http://localhost:5000/api/crime/track/${trackId}`, config);
+//         await axios.get(`https://crimetrack-api.onrender.com/api/crime/track/${trackId}`, config);
         
 //         navigate(`/user/case-file/${trackId}`);
 //       } catch (error) { toast.error("Invalid ID or Permission Denied"); }
@@ -1635,7 +1635,7 @@ const UserDashboard = ({ defaultTab = "menu" }) => {
       setLoading(true);
       
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-      const { data } = await axios.get("http://localhost:5000/api/crime/myreports", config);
+      const { data } = await axios.get("https://crimetrack-api.onrender.com/api/crime/myreports", config);
       setMyComplaints(data);
       setTimeout(() => setLoading(false), 500);
     } catch (error) { 
@@ -1651,7 +1651,7 @@ const UserDashboard = ({ defaultTab = "menu" }) => {
         const userInfo = JSON.parse(localStorage.getItem("userInfo"));
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
         
-        await axios.get(`http://localhost:5000/api/crime/track/${trackId}`, config);
+        await axios.get(`https://crimetrack-api.onrender.com/api/crime/track/${trackId}`, config);
         
         navigate(`/user/case-file/${trackId}`);
       } catch (error) { toast.error("Invalid ID or Permission Denied"); }

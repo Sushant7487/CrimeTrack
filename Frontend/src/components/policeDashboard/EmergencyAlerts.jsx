@@ -16,7 +16,7 @@
 //   const fetchAlerts = async () => {
 //     try {
 //       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//       const { data } = await axios.get("http://localhost:5000/api/crime/all", config);
+//       const { data } = await axios.get("https://crimetrack-api.onrender.com/api/crime/all", config);
       
 //       const sosAlerts = data.filter(c => 
 //           c.isSOS === true && 
@@ -41,7 +41,7 @@
 //   const assignToMe = async (id) => {
 //       try {
 //         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//         await axios.put(`http://localhost:5000/api/crime/update/${id}`, { action: "assign_self" }, config);
+//         await axios.put(`https://crimetrack-api.onrender.com/api/crime/update/${id}`, { action: "assign_self" }, config);
         
 //         toast.success("Emergency Case Assigned to You!");
         
@@ -201,7 +201,7 @@
 //   const fetchAlerts = async () => {
 //     try {
 //       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//       const { data } = await axios.get("http://localhost:5000/api/crime/all", config);
+//       const { data } = await axios.get("https://crimetrack-api.onrender.com/api/crime/all", config);
       
 //       const sosAlerts = data.filter(c => 
 //           c.isSOS === true && 
@@ -226,7 +226,7 @@
 //   const assignToMe = async (id) => {
 //       try {
 //         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//         await axios.put(`http://localhost:5000/api/crime/update/${id}`, { action: "assign_self" }, config);
+//         await axios.put(`https://crimetrack-api.onrender.com/api/crime/update/${id}`, { action: "assign_self" }, config);
         
 //         toast.success("Emergency Case Assigned to You!");
         
@@ -374,7 +374,7 @@
 //       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
       
 //       // ✅ Fetch All Data
-//       const { data } = await axios.get("http://localhost:5000/api/crime/all", config);
+//       const { data } = await axios.get("https://crimetrack-api.onrender.com/api/crime/all", config);
       
 //       console.log("Fetched Alerts:", data); // Debugging
 
@@ -408,7 +408,7 @@
 //   const assignToMe = async (id) => {
 //       try {
 //         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//         await axios.put(`http://localhost:5000/api/crime/update/${id}`, { action: "assign_self" }, config);
+//         await axios.put(`https://crimetrack-api.onrender.com/api/crime/update/${id}`, { action: "assign_self" }, config);
         
 //         toast.success("Emergency Case Assigned to You!");
         
@@ -568,7 +568,7 @@ const EmergencyAlerts = ({ onSOSResolved }) => {
     try {
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
       
-      const { data } = await axios.get("http://localhost:5000/api/crime/all", config);
+      const { data } = await axios.get("https://crimetrack-api.onrender.com/api/crime/all", config);
       
       const sosAlerts = data.filter(c => 
           (c.isSOS === true || c.isSOS === "true") && 
@@ -593,7 +593,7 @@ const EmergencyAlerts = ({ onSOSResolved }) => {
   const assignToMe = async (id) => {
       try {
         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-        await axios.put(`http://localhost:5000/api/crime/update/${id}`, { action: "assign_self" }, config);
+        await axios.put(`https://crimetrack-api.onrender.com/api/crime/update/${id}`, { action: "assign_self" }, config);
         
         toast.success("Emergency Case Assigned to You!");
         

@@ -149,7 +149,7 @@
 //         proofFiles.forEach(file => data.append("incidentProof", file));
 
 //         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//         const response = await axios.post("http://localhost:5000/api/crime/report", data, config);
+//         const response = await axios.post("https://crimetrack-api.onrender.com/api/crime/report", data, config);
 
 //         toast.success("Report Submitted!");
 //         setSuccessId(response.data._id);
@@ -614,7 +614,7 @@
 //         proofFiles.forEach(file => data.append("incidentProof", file));
 
 //         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//         const response = await axios.post("http://localhost:5000/api/crime/report", data, config);
+//         const response = await axios.post("https://crimetrack-api.onrender.com/api/crime/report", data, config);
 
 //         toast.success("Report Submitted!");
 //         setSuccessId(response.data._id);
@@ -1186,7 +1186,7 @@
 //         proofFiles.forEach(file => data.append("incidentProof", file));
 
 //         const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//         const response = await axios.post("http://localhost:5000/api/crime/report", data, config);
+//         const response = await axios.post("https://crimetrack-api.onrender.com/api/crime/report", data, config);
 
 //         toast.success("Report Submitted!");
 //         setSuccessId(response.data._id);
@@ -1539,7 +1539,7 @@ import {
   FaExclamationTriangle, FaChevronDown, FaPlus, FaMinus, FaBroadcastTower
 } from "react-icons/fa";
 
-const ENDPOINT = "http://localhost:5000";
+const ENDPOINT = "https://crimetrack-api.onrender.com";
 
 // --- HELPER: HAVERSINE FORMULA (Distance Calculation) ---
 // Note: This calculates "As the crow flies" (Straight line distance), not driving distance.

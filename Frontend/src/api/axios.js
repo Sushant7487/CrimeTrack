@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const api = axios.create({
-  baseURL: 'http://localhost:5000', // Aapka Backend URL
+  baseURL: 'https://crimetrack-api.onrender.com', // Aapka Backend URL
 
 });
 
@@ -17,4 +17,4 @@ api.interceptors.request.use((config) => {
   return Promise.reject(error);
 });
 
-export default api;
+export default api;     

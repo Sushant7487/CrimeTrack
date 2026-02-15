@@ -28,7 +28,7 @@
 
 //     try {
 //       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//       const { data } = await axios.get("http://localhost:5000/api/crime/all", config);
+//       const { data } = await axios.get("https://crimetrack-api.onrender.com/api/crime/all", config);
 //       setComplaints(Array.isArray(data) ? data : []);
       
 //       setTimeout(() => setLoading(false), 500);
@@ -59,7 +59,7 @@
 //   const assignToMe = async (id) => {
 //     try {
 //       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//       await axios.put(`http://localhost:5000/api/crime/update/${id}`, { action: "assign_self" }, config);
+//       await axios.put(`https://crimetrack-api.onrender.com/api/crime/update/${id}`, { action: "assign_self" }, config);
 //       toast.success("Case Assigned");
 //       fetchReports();
 //     } catch (error) { toast.error("Assignment Failed"); }
@@ -226,7 +226,7 @@
 
 //     try {
 //       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//       const { data } = await axios.get("http://localhost:5000/api/crime/all", config);
+//       const { data } = await axios.get("https://crimetrack-api.onrender.com/api/crime/all", config);
 //       setComplaints(Array.isArray(data) ? data : []);
       
 //       setTimeout(() => setLoading(false), 500);
@@ -279,7 +279,7 @@
 //   const assignToMe = async (id) => {
 //     try {
 //       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-//       await axios.put(`http://localhost:5000/api/crime/update/${id}`, { action: "assign_self" }, config);
+//       await axios.put(`https://crimetrack-api.onrender.com/api/crime/update/${id}`, { action: "assign_self" }, config);
 //       toast.success("Case Assigned");
 //       fetchReports();
 //     } catch (error) { toast.error("Assignment Failed"); }
@@ -445,7 +445,7 @@ const ViewComplaints = ({ onFileRecord }) => {
 
     try {
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-      const { data } = await axios.get("http://localhost:5000/api/crime/all", config);
+      const { data } = await axios.get("https://crimetrack-api.onrender.com/api/crime/all", config);
       setComplaints(Array.isArray(data) ? data : []);
       
       setTimeout(() => setLoading(false), 500);
@@ -498,7 +498,7 @@ const ViewComplaints = ({ onFileRecord }) => {
   const assignToMe = async (id) => {
     try {
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-      await axios.put(`http://localhost:5000/api/crime/update/${id}`, { action: "assign_self" }, config);
+      await axios.put(`https://crimetrack-api.onrender.com/api/crime/update/${id}`, { action: "assign_self" }, config);
       toast.success("Case Assigned");
       fetchReports();
     } catch (error) { toast.error("Assignment Failed"); }
