@@ -46,7 +46,7 @@ const SeniorCaseFile = () => {
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
       // Note: Using the endpoint from your provided code. Ensure this is correct for fetching single record details.
       // Usually it might be /api/crime/track/:id or you filter from /all. Keeping logic consistent with your snippet.
-      const { data } = await axios.get("https://crimetrack-api.onrender.com/api/crime/all", config);
+      const { data } = await axios.get("http://localhost:5000/api/crime/all", config);
       const found = Array.isArray(data) ? data.find(c => c._id === id) : null;
       
       if (found) {
@@ -143,7 +143,7 @@ const SeniorCaseFile = () => {
   const saveImportantNote = async () => {
     try {
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-      const { data } = await axios.put(`https://crimetrack-api.onrender.com/api/crime/update/${complaint._id}`, { importantNoteText: noteContent }, config);
+      const { data } = await axios.put(`http://localhost:5000/api/crime/update/${complaint._id}`, { importantNoteText: noteContent }, config);
       setComplaint(data);
       setIsEditingNote(false);
       toast.success("Internal Note Saved");
@@ -160,7 +160,7 @@ const SeniorCaseFile = () => {
     if (!remarkText.trim()) return toast.error("Remark is required!");
     try {
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-      await axios.put(`https://crimetrack-api.onrender.com/api/crime/update/${complaint._id}`, { status: statusModal.newStatus, remark: remarkText }, config);
+      await axios.put(`http://localhost:5000/api/crime/update/${complaint._id}`, { status: statusModal.newStatus, remark: remarkText }, config);
       toast.success(`Case Status Updated`);
       setStatusModal({ show: false, newStatus: "" });
       fetchComplaintDetails();

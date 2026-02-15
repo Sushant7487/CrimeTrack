@@ -19,7 +19,7 @@ const ManageOfficers = () => {
     try {
       const userInfo = JSON.parse(localStorage.getItem("userInfo"));
       const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-      const { data } = await axios.get("https://crimetrack-api.onrender.com/api/users/officers", config);
+      const { data } = await axios.get("http://localhost:5000/api/users/officers", config);
       setOfficers(data);
       setLoading(false);
     } catch (error) { toast.error("Failed to fetch officers"); setLoading(false); }
@@ -30,7 +30,7 @@ const ManageOfficers = () => {
   const handleAddOfficer = async (e) => {
     e.preventDefault();
     try {
-      await axios.post("https://crimetrack-api.onrender.com/api/users/signup", { ...formData, role: 'police' });
+      await axios.post("http://localhost:5000/api/users/signup", { ...formData, role: 'police' });
       toast.success("Officer Added!");
       setShowForm(false);
       fetchOfficers();
@@ -41,7 +41,7 @@ const ManageOfficers = () => {
     if(!window.confirm("Remove Officer?")) return;
     try {
       const userInfo = JSON.parse(localStorage.getItem("userInfo"));
-      await axios.delete(`https://crimetrack-api.onrender.com/api/users/${id}`, { headers: { Authorization: `Bearer ${userInfo.token}` } });
+      await axios.delete(`http://localhost:5000/api/users/${id}`, { headers: { Authorization: `Bearer ${userInfo.token}` } });
       toast.success("Officer Removed");
       fetchOfficers();
     } catch (error) { toast.error("Delete Failed"); }

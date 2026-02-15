@@ -26,7 +26,7 @@ const Documentation = () => {
                 if (!userInfo) return;
 
                 const config = { headers: { Authorization: `Bearer ${userInfo.token}` } };
-                const { data } = await axios.get("https://crimetrack-api.onrender.com/api/crime/myreports", config);
+                const { data } = await axios.get("http://localhost:5000/api/crime/myreports", config);
                 setReports(data);
                 setLoading(false);
             } catch (error) {
