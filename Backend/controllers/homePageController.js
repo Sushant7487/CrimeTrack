@@ -18,7 +18,7 @@ const getPublicContent = async (req, res) => {
 
     // C. Fetch Featured Reviews (Only 5 stars or explicitly featured)
     const featuredReviews = await Feedback.find({ isFeatured: true, type: 'Review' })
-        .populate('user', 'firstName lastName idPhoto')
+        .populate('user', 'firstName lastName idPhoto role designation')
         .sort({ createdAt: -1 });
 
     res.json({

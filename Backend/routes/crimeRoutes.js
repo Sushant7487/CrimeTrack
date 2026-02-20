@@ -74,12 +74,63 @@
 
 
 
+// const express = require('express');
+// const router = express.Router();
+// const { 
+//     createReport, getAllReports, getPastCrimes, getMyReports, getReportById, 
+//     updateReportStatus, fileOfficialRecord, triggerSOS, fileFIR, getStats,
+//     updateLiveLocation // ✅ Import
+// } = require('../controllers/crimeController');
+
+// const { protect } = require('../middleware/authMiddleware');
+// const upload = require('../middleware/uploadMiddleware');
+
+// // ==========================
+// // CITIZEN ROUTES
+// // ==========================
+// router.post('/report', protect, upload.fields([
+//     { name: 'victimIdPhoto', maxCount: 1 },  
+//     { name: 'suspectIdPhoto', maxCount: 1 }, 
+//     { name: 'evidence', maxCount: 10 },       
+//     { name: 'incidentProof', maxCount: 10 }   
+// ]), createReport);
+
+// router.get('/myreports', protect, getMyReports);
+// router.post('/sos', triggerSOS);
+
+// // ✅ NEW: Continuous Tracking Route
+// router.put('/track/update/:id', protect, updateLiveLocation);
+
+// // ==========================
+// // POLICE / DASHBOARD ROUTES
+// // ==========================
+// router.post('/file-record', protect, upload.array('policeEvidence'), fileOfficialRecord);
+// router.get('/all', protect, getAllReports);
+// router.get('/track/:id', protect, getReportById);
+// router.put('/update/:id', protect, updateReportStatus);
+// router.get('/history', protect, getPastCrimes);
+// router.get('/stats', getStats);
+
+// module.exports = router;
+
+
+
+
+
+
+
+
+
+
+
+
 const express = require('express');
 const router = express.Router();
 const { 
     createReport, getAllReports, getPastCrimes, getMyReports, getReportById, 
     updateReportStatus, fileOfficialRecord, triggerSOS, fileFIR, getStats,
-    updateLiveLocation // ✅ Import
+    updateLiveLocation, // ✅ Import
+    searchByFace // ✅ NEW: Added for Face Search Feature
 } = require('../controllers/crimeController');
 
 const { protect } = require('../middleware/authMiddleware');
@@ -110,5 +161,8 @@ router.get('/track/:id', protect, getReportById);
 router.put('/update/:id', protect, updateReportStatus);
 router.get('/history', protect, getPastCrimes);
 router.get('/stats', getStats);
+
+// ✅ NEW: Face Search Route (Upload Image -> Search Database)
+router.post('/search-face', protect, upload.single('image'), searchByFace);
 
 module.exports = router;

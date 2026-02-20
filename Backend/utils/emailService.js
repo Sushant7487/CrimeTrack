@@ -5080,6 +5080,702 @@
 
 
 
+// const axios = require('axios');
+
+// // 🔗 CONFIGURATION
+// const CRIMETRACK_LOGO = "https://res.cloudinary.com/dukrcgv8s/image/upload/v1770304918/CrimeTrack_abbtdr.png"; 
+// const MAH_POLICE_LOGO = "https://res.cloudinary.com/dukrcgv8s/image/upload/v1771074848/MH_POLICE_LOGO_WHITE_wmf9hd.png";
+
+// // 🎨 OFFICIAL COLORS
+// const COLORS = {
+//     headerBg: "#2f0b4d",   // Purple Theme
+//     headerText: "#ffffff",
+//     bodyBg: "#e2e8f0",     
+//     cardBg: "#ffffff",     
+//     textMain: "#334155",   
+//     textLight: "#64748b",  
+//     border: "#cbd5e1",     
+//     accent: "#7c3aed"      
+// };
+
+// // 📅 HELPER: Get Current Timestamp
+// const getTimestamp = () => new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+
+// // ==========================================
+// // 📄 MAIN TEMPLATE GENERATOR (UI Layout)
+// // ==========================================
+// const generateOfficialTemplate = ({ title, recipientName, refNo, subject, dataTable, bodyText, footerNote }) => {
+//     return `
+//     <!DOCTYPE html>
+//     <html>
+//     <head>
+//         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//         <style>
+//             body { margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; background-color: ${COLORS.bodyBg}; }
+//             .wrapper { max-width: 650px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; font-family: 'Segoe UI', sans-serif; }
+//             @media only screen and (max-width: 600px) {
+//                 .logo-police { width: 60px !important; }
+//                 .logo-crimetrack { width: 100px !important; }
+//                 .header-text { font-size: 14px !important; }
+//                 .wrapper { width: 100% !important; border-radius: 0; }
+//             }
+//         </style>
+//     </head>
+//     <body style="padding: 20px 0;">
+//         <div class="wrapper">
+//             <div style="background-color: ${COLORS.headerBg}; padding: 15px 20px;">
+//                 <table width="100%">
+//                     <tr>
+//                         <td align="left" width="20%"><img src="${MAH_POLICE_LOGO}" class="logo-police" style="width: 80px; display: block;"></td>
+//                         <td align="center" width="60%">
+//                             <h2 class="header-text" style="margin:0; color:#fff; font-size:18px; text-transform:uppercase;">Maharashtra State Police</h2>
+//                             <p style="margin:5px 0 0; color:#e9d5ff; font-size:11px; text-transform:uppercase;">CrimeTrack Digital System</p>
+//                         </td>
+//                         <td align="right" width="20%"><img src="${CRIMETRACK_LOGO}" class="logo-crimetrack" style="width: 110px; display: block;"></td>
+//                     </tr>
+//                 </table>
+//             </div>
+
+//             <div style="padding: 30px;">
+//                 <table width="100%" style="border-bottom: 2px solid #f1f5f9; margin-bottom: 20px; padding-bottom: 10px;">
+//                     <tr>
+//                         <td align="left" style="font-size:12px; color:#64748b;"><strong>REF:</strong> ${refNo || `SYS-${Date.now().toString().slice(-6)}`}</td>
+//                         <td align="right" style="font-size:12px; color:#64748b;"><strong>DATE:</strong> ${getTimestamp()}</td>
+//                     </tr>
+//                 </table>
+
+//                 <p style="font-size:15px; color:#334155; margin-bottom:20px;">
+//                     <strong style="color:${COLORS.headerBg};">To,</strong><br>
+//                     <span style="font-size:18px; font-weight:bold;">${recipientName}</span>
+//                 </p>
+
+//                 <div style="text-align:center; margin-bottom:25px;">
+//                     <div style="display:inline-block; background:#f8fafc; padding:10px 20px; border-radius:50px; border:1px solid #cbd5e1; font-weight:bold; color:${COLORS.headerBg}; font-size:13px;">
+//                         SUBJECT: ${subject}
+//                     </div>
+//                 </div>
+
+//                 <div style="font-size:14px; line-height:1.6; color:#334155; text-align:justify; margin-bottom:25px;">
+//                     ${bodyText}
+//                 </div>
+
+//                 ${dataTable ? `
+//                 <table style="width:100%; border-collapse:collapse; font-size:13px; margin-bottom:25px; border:1px solid #e2e8f0;">
+//                     ${dataTable}
+//                 </table>` : ''}
+
+//                 <div style="text-align:right; margin-top:30px; border-top:1px dashed #cbd5e1; padding-top:15px;">
+//                     <p style="margin:0; font-weight:bold; color:${COLORS.headerBg}; font-size:13px;">ISSUING AUTHORITY</p>
+//                     <p style="margin:2px 0 0; font-size:11px; color:#64748b;">CrimeTrack Digital HQ</p>
+//                 </div>
+//             </div>
+
+//             <div style="background-color:#f8fafc; padding:15px; text-align:center; font-size:11px; color:#94a3b8; border-top:1px solid #e2e8f0;">
+//                 <strong>${footerNote || "Official Digital Communication"}</strong><br>
+//                 Valid under IT Act, 2000. Automated System Email.
+//             </div>
+//         </div>
+//     </body>
+//     </html>
+//     `;
+// };
+
+// // 🛠️ HELPER: Row Builder
+// const createRow = (label, value, highlight = false) => `
+//     <tr>
+//         <td style="padding:10px; border-bottom:1px solid #e2e8f0; background:#f8fafc; font-weight:bold; width:35%; color:#475569;">${label}</td>
+//         <td style="padding:10px; border-bottom:1px solid #e2e8f0; color:${highlight ? COLORS.headerBg : '#334155'}; font-weight:${highlight ? 'bold' : 'normal'};">${value || "N/A"}</td>
+//     </tr>
+// `;
+
+// // 🚀 CORE EMAIL SENDER (Brevo)
+// const sendBrevoEmail = async (to, subject, htmlContent) => {
+//     try {
+//         await axios.post('https://api.brevo.com/v3/smtp/email', {
+//             sender: { email: process.env.EMAIL_FROM || "admin@crimetrack.com", name: 'CrimeTrack Police Dept' },
+//             to: [{ email: to }],
+//             subject: subject,
+//             htmlContent: htmlContent,
+//         }, {
+//             headers: { 'api-key': process.env.BREVO_API_KEY, 'Content-Type': 'application/json' }
+//         });
+//         console.log(`✅ Mail Sent to ${to}: ${subject}`);
+//     } catch (error) {
+//         console.error("❌ Mail Error:", error.response?.data || error.message);
+//     }
+// };
+
+// /* =========================================================================
+//    1. 🔐 OTP & VERIFICATION
+//    ========================================================================= */
+// const sendOtpEmail = async (email, otp) => {
+//     const table = `
+//         ${createRow("OTP Code", `<span style="font-size:18px; letter-spacing:2px;">${otp}</span>`, true)}
+//         ${createRow("Validity", "10 Minutes")}
+//         ${createRow("Purpose", "Identity Verification")}
+//     `;
+//     const body = `Use the One-Time Password (OTP) below to verify your identity on the CrimeTrack Portal. Do not share this code with anyone.`;
+    
+//     await sendBrevoEmail(email, "Your Verification Code", generateOfficialTemplate({
+//         title: "SECURITY VERIFICATION", recipientName: "User", subject: "LOGIN VERIFICATION CODE",
+//         bodyText: body, dataTable: table
+//     }));
+// };
+
+// /* =========================================================================
+//    2. 👋 WELCOME / REGISTRATION
+//    ========================================================================= */
+// const sendWelcomeEmail = async (email, name, password) => {
+//     const table = `
+//         ${createRow("Registered Email", email)}
+//         ${createRow("Login Password", password, true)}
+//         ${createRow("Role", "Citizen / User")}
+//     `;
+//     const body = `Welcome to <strong>CrimeTrack</strong>. Your digital account has been created successfully. You can now file e-FIRs, send SOS alerts, and track cases online.`;
+
+//     await sendBrevoEmail(email, "Welcome to CrimeTrack", generateOfficialTemplate({
+//         title: "ACCOUNT CREATED", recipientName: name, subject: "REGISTRATION SUCCESSFUL",
+//         bodyText: body, dataTable: table, footerNote: "Please change your password after logging in."
+//     }));
+// };
+
+// /* =========================================================================
+//    3. 📝 PROFILE UPDATE ALERT (New Function)
+//    ========================================================================= */
+// const sendProfileUpdateSuccessEmail = async (email, name) => {
+//     const table = `
+//         ${createRow("Update Type", "Profile Information")}
+//         ${createRow("Date", getTimestamp())}
+//         ${createRow("Status", "Successful", true)}
+//     `;
+//     const body = `This is to inform you that your personal profile details on the CrimeTrack Portal have been successfully updated. If you did not make this change, please contact support immediately.`;
+
+//     await sendBrevoEmail(email, "Profile Updated", generateOfficialTemplate({
+//         title: "PROFILE MODIFICATION", recipientName: name, subject: "ACCOUNT DETAILS UPDATED",
+//         bodyText: body, dataTable: table
+//     }));
+// };
+
+// /* =========================================================================
+//    4. ⭐ FEEDBACK / REVIEW ACKNOWLEDGEMENT (New Function - Fixed Bug)
+//    ========================================================================= */
+// const sendFeedbackThankYou = async (email, name, type) => {
+//     const table = `
+//         ${createRow("Submission Type", type, true)}
+//         ${createRow("Received Date", getTimestamp())}
+//         ${createRow("Status", "Logged for Review")}
+//     `;
+//     const body = `Thank you for taking the time to submit your <strong>${type}</strong>. We value your input as it helps us improve the Digital Policing experience for all citizens.`;
+
+//     await sendBrevoEmail(email, "We Received Your Feedback", generateOfficialTemplate({
+//         title: "FEEDBACK RECEIVED", recipientName: name, subject: `ACKNOWLEDGEMENT OF ${type.toUpperCase()}`,
+//         bodyText: body, dataTable: table, footerNote: "Your voice matters to us."
+//     }));
+// };
+
+// /* =========================================================================
+//    5. 🎫 HELP TICKET ACKNOWLEDGEMENT (New Function - Fixed Bug)
+//    ========================================================================= */
+// const sendHelpTicketAck = async (email, name, ticketId) => {
+//     const table = `
+//         ${createRow("Ticket ID", `#${ticketId}`, true)}
+//         ${createRow("Date Opened", getTimestamp())}
+//         ${createRow("Priority", "Standard")}
+//     `;
+//     const body = `We have received your support request. Our support team is reviewing your query and will get back to you shortly via the portal or email.`;
+
+//     await sendBrevoEmail(email, `Support Request #${ticketId}`, generateOfficialTemplate({
+//         title: "SUPPORT TICKET OPENED", recipientName: name, subject: "HELP DESK REQUEST RECEIVED",
+//         bodyText: body, dataTable: table
+//     }));
+// };
+
+// /* =========================================================================
+//    6. 💬 SUPPORT REPLY FROM ADMIN (New Function - Fixed Bug)
+//    ========================================================================= */
+// const sendAdminReplyEmail = async (email, name, ticketId, replyMessage) => {
+//     const table = `
+//         ${createRow("Ticket Ref", `#${ticketId}`, true)}
+//         ${createRow("Replied By", "Support Admin")}
+//         ${createRow("Status", "Responded")}
+//     `;
+//     const body = `You have received a new response to your support ticket. <br><br><strong>Admin Response:</strong><br><em>"${replyMessage}"</em>`;
+
+//     await sendBrevoEmail(email, `Reply: Ticket #${ticketId}`, generateOfficialTemplate({
+//         title: "SUPPORT RESPONSE", recipientName: name, subject: "UPDATE ON YOUR TICKET",
+//         bodyText: body, dataTable: table, footerNote: "Log in to the portal to view full history."
+//     }));
+// };
+
+// /* =========================================================================
+//    7. 📩 COMPLAINT / FIR FILING
+//    ========================================================================= */
+// const sendComplaintConfirmation = async (email, name, complaintId) => {
+//     const table = `
+//         ${createRow("Complaint ID", `#${complaintId}`, true)}
+//         ${createRow("Filing Date", getTimestamp())}
+//         ${createRow("Status", "Under Review")}
+//     `;
+//     const body = `Your complaint has been successfully lodged in the Central Registry. It has been forwarded to the concerned Station House Officer (SHO) for assessment.`;
+
+//     await sendBrevoEmail(email, `Complaint Lodged: #${complaintId}`, generateOfficialTemplate({
+//         title: "COMPLAINT RECEIPT", recipientName: name, refNo: `FIR/REQ/${complaintId}`,
+//         subject: "OFFICIAL COMPLAINT REGISTRATION", bodyText: body, dataTable: table
+//     }));
+// };
+
+// /* =========================================================================
+//    8. 🚨 CASE STATUS UPDATE (FIR / NCR)
+//    ========================================================================= */
+// const sendStatusUpdateEmail = async (email, report, status, officerRemark) => {
+//     const record = report.officialRecord || {};
+//     const table = `
+//         ${createRow("Case Ref ID", `#${report._id}`)}
+//         ${createRow("Record No", record.recordNumber || "Pending", true)}
+//         ${createRow("New Status", status.toUpperCase(), true)}
+//         ${createRow("Officer Remark", officerRemark || "Update logged.")}
+//     `;
+//     const body = `There has been an official update regarding your case. Please review the details below. If an FIR/NCR has been filed, the record number is provided.`;
+
+//     await sendBrevoEmail(email, `Case Update: #${report._id}`, generateOfficialTemplate({
+//         title: "CASE STATUS NOTIFICATION", recipientName: report.user?.name || "Citizen",
+//         subject: `STATUS CHANGED TO: ${status.toUpperCase()}`, bodyText: body, dataTable: table
+//     }));
+// };
+
+// /* =========================================================================
+//    9. 📜 OFFICIAL NOTICES (Summons)
+//    ========================================================================= */
+// const sendNoticeAlert = async (email, name, senderDetails, type) => {
+//     const table = `
+//         ${createRow("Notice Type", type.toUpperCase(), true)}
+//         ${createRow("Issued By", senderDetails.name)}
+//         ${createRow("Station", senderDetails.station)}
+//     `;
+//     const body = `You are hereby served with an official <strong>${type}</strong>. This document requires your immediate attention. Please login to the portal to view the full digitally signed document.`;
+
+//     await sendBrevoEmail(email, `URGENT: Official ${type}`, generateOfficialTemplate({
+//         title: "LEGAL INTIMATION", recipientName: name, subject: `ISSUANCE OF ${type.toUpperCase()}`,
+//         bodyText: body, dataTable: table, footerNote: "Failure to comply may lead to legal action."
+//     }));
+// };
+
+// /* =========================================================================
+//    10. 📹 MEETING INVITE
+//    ========================================================================= */
+// const sendMeetingInvite = async (email, name, meetingDetails) => {
+//     const meetingTime = new Date(meetingDetails.scheduledTime).toLocaleString('en-IN', { dateStyle: 'full', timeStyle: 'short' });
+//     const table = `
+//         ${createRow("Topic", meetingDetails.title, true)}
+//         ${createRow("Time", meetingTime)}
+//         ${createRow("Mode", "Online Video Conference")}
+//     `;
+//     const body = `You are requested to attend an official virtual meeting regarding an ongoing inquiry. Please be present at the scheduled time. Link available on dashboard.`;
+
+//     await sendBrevoEmail(email, "Meeting Invitation", generateOfficialTemplate({
+//         title: "MEETING SUMMONS", recipientName: name, subject: "OFFICIAL INQUIRY MEETING",
+//         bodyText: body, dataTable: table
+//     }));
+// };
+
+// /* =========================================================================
+//    11. 🆘 ADMIN ALERTS
+//    ========================================================================= */
+// const sendAdminAlert = async (action, user) => {
+//     const table = `
+//         ${createRow("Event", action.toUpperCase(), true)}
+//         ${createRow("User", `${user.name} (${user.email})`)}
+//         ${createRow("Role", user.role)}
+//     `;
+//     const body = `A critical security event has been logged in the system registry.`;
+
+//     await sendBrevoEmail("sushanttelekune@gmail.com", `System Alert: ${action}`, generateOfficialTemplate({
+//         title: "SYSTEM ALERT", recipientName: "Administrator", subject: "SECURITY EVENT LOGGED",
+//         bodyText: body, dataTable: table
+//     }));
+// };
+
+// module.exports = { 
+//     sendOtpEmail, 
+//     sendWelcomeEmail, 
+//     sendProfileUpdateSuccessEmail, // ✅ Correct Function
+//     sendComplaintConfirmation, 
+//     sendStatusUpdateEmail,
+//     sendHelpTicketAck,             // ✅ Correct Function
+//     sendAdminReplyEmail,           // ✅ Correct Function
+//     sendFeedbackThankYou,          // ✅ Correct Function
+//     sendNoticeAlert,
+//     sendMeetingInvite,    
+//     sendAdminAlert
+// };
+
+
+
+
+
+
+
+
+
+
+
+// const axios = require('axios');
+
+// // 🔗 CONFIGURATION
+// const CRIMETRACK_LOGO = "https://res.cloudinary.com/dukrcgv8s/image/upload/v1770304918/CrimeTrack_abbtdr.png"; 
+// const MAH_POLICE_LOGO = "https://res.cloudinary.com/dukrcgv8s/image/upload/v1771074848/MH_POLICE_LOGO_WHITE_wmf9hd.png";
+
+// // 🎨 OFFICIAL COLORS
+// const COLORS = {
+//     headerBg: "#2f0b4d",   // Purple Theme
+//     headerText: "#ffffff",
+//     bodyBg: "#e2e8f0",     
+//     cardBg: "#ffffff",     
+//     textMain: "#334155",   
+//     textLight: "#64748b",  
+//     border: "#cbd5e1",     
+//     accent: "#7c3aed"      
+// };
+
+// // 📅 HELPER: Get Current Timestamp
+// const getTimestamp = () => new Date().toLocaleString('en-IN', { timeZone: 'Asia/Kolkata' });
+
+// // ==========================================
+// // 📄 MAIN TEMPLATE GENERATOR (UI Layout)
+// // ==========================================
+// const generateOfficialTemplate = ({ title, recipientName, refNo, subject, dataTable, bodyText, footerNote }) => {
+//     return `
+//     <!DOCTYPE html>
+//     <html>
+//     <head>
+//         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+//         <style>
+//             body { margin: 0; padding: 0; font-family: 'Segoe UI', sans-serif; background-color: ${COLORS.bodyBg}; }
+//             .wrapper { max-width: 650px; margin: 0 auto; background-color: #ffffff; border-radius: 12px; overflow: hidden; font-family: 'Segoe UI', sans-serif; }
+//             @media only screen and (max-width: 600px) {
+//                 .logo-police { width: 60px !important; }
+//                 .logo-crimetrack { width: 100px !important; }
+//                 .header-text { font-size: 14px !important; }
+//                 .wrapper { width: 100% !important; border-radius: 0; }
+//             }
+//         </style>
+//     </head>
+//     <body style="padding: 20px 0;">
+//         <div class="wrapper">
+//             <div style="background-color: ${COLORS.headerBg}; padding: 15px 20px;">
+//                 <table width="100%">
+//                     <tr>
+//                         <td align="left" width="20%"><img src="${MAH_POLICE_LOGO}" class="logo-police" style="width: 80px; display: block;"></td>
+//                         <td align="center" width="60%">
+//                             <h2 class="header-text" style="margin:0; color:#fff; font-size:18px; text-transform:uppercase;">Maharashtra State Police</h2>
+//                             <p style="margin:5px 0 0; color:#e9d5ff; font-size:11px; text-transform:uppercase;">CrimeTrack Digital System</p>
+//                         </td>
+//                         <td align="right" width="20%"><img src="${CRIMETRACK_LOGO}" class="logo-crimetrack" style="width: 110px; display: block;"></td>
+//                     </tr>
+//                 </table>
+//             </div>
+
+//             <div style="padding: 30px;">
+//                 <table width="100%" style="border-bottom: 2px solid #f1f5f9; margin-bottom: 20px; padding-bottom: 10px;">
+//                     <tr>
+//                         <td align="left" style="font-size:12px; color:#64748b;"><strong>REF:</strong> ${refNo || `SYS-${Date.now().toString().slice(-6)}`}</td>
+//                         <td align="right" style="font-size:12px; color:#64748b;"><strong>DATE:</strong> ${getTimestamp()}</td>
+//                     </tr>
+//                 </table>
+
+//                 <p style="font-size:15px; color:#334155; margin-bottom:20px;">
+//                     <strong style="color:${COLORS.headerBg};">To,</strong><br>
+//                     <span style="font-size:18px; font-weight:bold;">${recipientName}</span>
+//                 </p>
+
+//                 <div style="text-align:center; margin-bottom:25px;">
+//                     <div style="display:inline-block; background:#f8fafc; padding:10px 20px; border-radius:50px; border:1px solid #cbd5e1; font-weight:bold; color:${COLORS.headerBg}; font-size:13px;">
+//                         SUBJECT: ${subject}
+//                     </div>
+//                 </div>
+
+//                 <div style="font-size:14px; line-height:1.6; color:#334155; text-align:justify; margin-bottom:25px;">
+//                     ${bodyText}
+//                 </div>
+
+//                 ${dataTable ? `
+//                 <table style="width:100%; border-collapse:collapse; font-size:13px; margin-bottom:25px; border:1px solid #e2e8f0;">
+//                     ${dataTable}
+//                 </table>` : ''}
+
+//                 <div style="text-align:right; margin-top:30px; border-top:1px dashed #cbd5e1; padding-top:15px;">
+//                     <p style="margin:0; font-weight:bold; color:${COLORS.headerBg}; font-size:13px;">ISSUING AUTHORITY</p>
+//                     <p style="margin:2px 0 0; font-size:11px; color:#64748b;">CrimeTrack Digital HQ</p>
+//                 </div>
+//             </div>
+
+//             <div style="background-color:#f8fafc; padding:15px; text-align:center; font-size:11px; color:#94a3b8; border-top:1px solid #e2e8f0;">
+//                 <strong>${footerNote || "Official Digital Communication"}</strong><br>
+//                 Valid under IT Act, 2000. Automated System Email.
+//             </div>
+//         </div>
+//     </body>
+//     </html>
+//     `;
+// };
+
+// // 🛠️ HELPER: Row Builder
+// const createRow = (label, value, highlight = false) => `
+//     <tr>
+//         <td style="padding:10px; border-bottom:1px solid #e2e8f0; background:#f8fafc; font-weight:bold; width:35%; color:#475569;">${label}</td>
+//         <td style="padding:10px; border-bottom:1px solid #e2e8f0; color:${highlight ? COLORS.headerBg : '#334155'}; font-weight:${highlight ? 'bold' : 'normal'};">${value || "N/A"}</td>
+//     </tr>
+// `;
+
+// // 🚀 CORE EMAIL SENDER (Brevo)
+// const sendBrevoEmail = async (to, subject, htmlContent) => {
+//     try {
+//         await axios.post('https://api.brevo.com/v3/smtp/email', {
+//             sender: { email: process.env.EMAIL_FROM || "admin@crimetrack.com", name: 'CrimeTrack Police Dept' },
+//             to: [{ email: to }],
+//             subject: subject,
+//             htmlContent: htmlContent,
+//         }, {
+//             headers: { 'api-key': process.env.BREVO_API_KEY, 'Content-Type': 'application/json' }
+//         });
+//         console.log(`✅ Mail Sent to ${to}: ${subject}`);
+//     } catch (error) {
+//         console.error("❌ Mail Error:", error.response?.data || error.message);
+//     }
+// };
+
+// /* =========================================================================
+//    1. 🔐 OTP & VERIFICATION
+//    ========================================================================= */
+// const sendOtpEmail = async (email, otp) => {
+//     const table = `
+//         ${createRow("OTP Code", `<span style="font-size:18px; letter-spacing:2px;">${otp}</span>`, true)}
+//         ${createRow("Validity", "10 Minutes")}
+//         ${createRow("Purpose", "Identity Verification")}
+//     `;
+//     const body = `Use the One-Time Password (OTP) below to verify your identity on the CrimeTrack Portal. Do not share this code with anyone.`;
+    
+//     await sendBrevoEmail(email, "Your Verification Code", generateOfficialTemplate({
+//         title: "SECURITY VERIFICATION", recipientName: "User", subject: "LOGIN VERIFICATION CODE",
+//         bodyText: body, dataTable: table
+//     }));
+// };
+
+// /* =========================================================================
+//    1b. 🔐 PROFILE EDIT OTP (✅ NEW FUNCTION ADDED)
+//    ========================================================================= */
+// const sendProfileOtpEmail = async (email, otp) => {
+//     const table = `
+//         ${createRow("OTP Code", `<span style="font-size:18px; letter-spacing:2px;">${otp}</span>`, true)}
+//         ${createRow("Validity", "10 Minutes")}
+//         ${createRow("Purpose", "Profile Update Authorization")}
+//     `;
+//     const body = `We received a request to edit the profile details associated with your CrimeTrack account. Please use the One-Time Password (OTP) below to authorize this action. If you did not initiate this request, please ignore this email.`;
+    
+//     await sendBrevoEmail(email, "Profile Edit Verification Code", generateOfficialTemplate({
+//         title: "SECURITY VERIFICATION", recipientName: "User", subject: "PROFILE EDIT AUTHORIZATION",
+//         bodyText: body, dataTable: table
+//     }));
+// };
+
+// /* =========================================================================
+//    2. 👋 WELCOME / REGISTRATION
+//    ========================================================================= */
+// const sendWelcomeEmail = async (email, name, password) => {
+//     const table = `
+//         ${createRow("Registered Email", email)}
+//         ${createRow("Login Password", password, true)}
+//         ${createRow("Role", "Citizen / User")}
+//     `;
+//     const body = `Welcome to <strong>CrimeTrack</strong>. Your digital account has been created successfully. You can now file e-FIRs, send SOS alerts, and track cases online.`;
+
+//     await sendBrevoEmail(email, "Welcome to CrimeTrack", generateOfficialTemplate({
+//         title: "ACCOUNT CREATED", recipientName: name, subject: "REGISTRATION SUCCESSFUL",
+//         bodyText: body, dataTable: table, footerNote: "Please change your password after logging in."
+//     }));
+// };
+
+// /* =========================================================================
+//    3. 📝 PROFILE UPDATE ALERT 
+//    ========================================================================= */
+// const sendProfileUpdateSuccessEmail = async (email, name) => {
+//     const table = `
+//         ${createRow("Update Type", "Profile Information")}
+//         ${createRow("Date", getTimestamp())}
+//         ${createRow("Status", "Successful", true)}
+//     `;
+//     const body = `This is to inform you that your personal profile details on the CrimeTrack Portal have been successfully updated. If you did not make this change, please contact support immediately.`;
+
+//     await sendBrevoEmail(email, "Profile Updated", generateOfficialTemplate({
+//         title: "PROFILE MODIFICATION", recipientName: name, subject: "ACCOUNT DETAILS UPDATED",
+//         bodyText: body, dataTable: table
+//     }));
+// };
+
+// /* =========================================================================
+//    4. ⭐ FEEDBACK / REVIEW ACKNOWLEDGEMENT 
+//    ========================================================================= */
+// const sendFeedbackThankYou = async (email, name, type) => {
+//     const table = `
+//         ${createRow("Submission Type", type, true)}
+//         ${createRow("Received Date", getTimestamp())}
+//         ${createRow("Status", "Logged for Review")}
+//     `;
+//     const body = `Thank you for taking the time to submit your <strong>${type}</strong>. We value your input as it helps us improve the Digital Policing experience for all citizens.`;
+
+//     await sendBrevoEmail(email, "We Received Your Feedback", generateOfficialTemplate({
+//         title: "FEEDBACK RECEIVED", recipientName: name, subject: `ACKNOWLEDGEMENT OF ${type.toUpperCase()}`,
+//         bodyText: body, dataTable: table, footerNote: "Your voice matters to us."
+//     }));
+// };
+
+// /* =========================================================================
+//    5. 🎫 HELP TICKET ACKNOWLEDGEMENT 
+//    ========================================================================= */
+// const sendHelpTicketAck = async (email, name, ticketId) => {
+//     const table = `
+//         ${createRow("Ticket ID", `#${ticketId}`, true)}
+//         ${createRow("Date Opened", getTimestamp())}
+//         ${createRow("Priority", "Standard")}
+//     `;
+//     const body = `We have received your support request. Our support team is reviewing your query and will get back to you shortly via the portal or email.`;
+
+//     await sendBrevoEmail(email, `Support Request #${ticketId}`, generateOfficialTemplate({
+//         title: "SUPPORT TICKET OPENED", recipientName: name, subject: "HELP DESK REQUEST RECEIVED",
+//         bodyText: body, dataTable: table
+//     }));
+// };
+
+// /* =========================================================================
+//    6. 💬 SUPPORT REPLY FROM ADMIN 
+//    ========================================================================= */
+// const sendAdminReplyEmail = async (email, name, ticketId, replyMessage) => {
+//     const table = `
+//         ${createRow("Ticket Ref", `#${ticketId}`, true)}
+//         ${createRow("Replied By", "Support Admin")}
+//         ${createRow("Status", "Responded")}
+//     `;
+//     const body = `You have received a new response to your support ticket. <br><br><strong>Admin Response:</strong><br><em>"${replyMessage}"</em>`;
+
+//     await sendBrevoEmail(email, `Reply: Ticket #${ticketId}`, generateOfficialTemplate({
+//         title: "SUPPORT RESPONSE", recipientName: name, subject: "UPDATE ON YOUR TICKET",
+//         bodyText: body, dataTable: table, footerNote: "Log in to the portal to view full history."
+//     }));
+// };
+
+// /* =========================================================================
+//    7. 📩 COMPLAINT / FIR FILING
+//    ========================================================================= */
+// const sendComplaintConfirmation = async (email, name, complaintId) => {
+//     const table = `
+//         ${createRow("Complaint ID", `#${complaintId}`, true)}
+//         ${createRow("Filing Date", getTimestamp())}
+//         ${createRow("Status", "Under Review")}
+//     `;
+//     const body = `Your complaint has been successfully lodged in the Central Registry. It has been forwarded to the concerned Station House Officer (SHO) for assessment.`;
+
+//     await sendBrevoEmail(email, `Complaint Lodged: #${complaintId}`, generateOfficialTemplate({
+//         title: "COMPLAINT RECEIPT", recipientName: name, refNo: `FIR/REQ/${complaintId}`,
+//         subject: "OFFICIAL COMPLAINT REGISTRATION", bodyText: body, dataTable: table
+//     }));
+// };
+
+// /* =========================================================================
+//    8. 🚨 CASE STATUS UPDATE (FIR / NCR)
+//    ========================================================================= */
+// const sendStatusUpdateEmail = async (email, report, status, officerRemark) => {
+//     const record = report.officialRecord || {};
+//     const table = `
+//         ${createRow("Case Ref ID", `#${report._id}`)}
+//         ${createRow("Record No", record.recordNumber || "Pending", true)}
+//         ${createRow("New Status", status.toUpperCase(), true)}
+//         ${createRow("Officer Remark", officerRemark || "Update logged.")}
+//     `;
+//     const body = `There has been an official update regarding your case. Please review the details below. If an FIR/NCR has been filed, the record number is provided.`;
+
+//     await sendBrevoEmail(email, `Case Update: #${report._id}`, generateOfficialTemplate({
+//         title: "CASE STATUS NOTIFICATION", recipientName: report.user?.name || "Citizen",
+//         subject: `STATUS CHANGED TO: ${status.toUpperCase()}`, bodyText: body, dataTable: table
+//     }));
+// };
+
+// /* =========================================================================
+//    9. 📜 OFFICIAL NOTICES (Summons)
+//    ========================================================================= */
+// const sendNoticeAlert = async (email, name, senderDetails, type) => {
+//     const table = `
+//         ${createRow("Notice Type", type.toUpperCase(), true)}
+//         ${createRow("Issued By", senderDetails.name)}
+//         ${createRow("Station", senderDetails.station)}
+//     `;
+//     const body = `You are hereby served with an official <strong>${type}</strong>. This document requires your immediate attention. Please login to the portal to view the full digitally signed document.`;
+
+//     await sendBrevoEmail(email, `URGENT: Official ${type}`, generateOfficialTemplate({
+//         title: "LEGAL INTIMATION", recipientName: name, subject: `ISSUANCE OF ${type.toUpperCase()}`,
+//         bodyText: body, dataTable: table, footerNote: "Failure to comply may lead to legal action."
+//     }));
+// };
+
+// /* =========================================================================
+//    10. 📹 MEETING INVITE
+//    ========================================================================= */
+// const sendMeetingInvite = async (email, name, meetingDetails) => {
+//     const meetingTime = new Date(meetingDetails.scheduledTime).toLocaleString('en-IN', { dateStyle: 'full', timeStyle: 'short' });
+//     const table = `
+//         ${createRow("Topic", meetingDetails.title, true)}
+//         ${createRow("Time", meetingTime)}
+//         ${createRow("Mode", "Online Video Conference")}
+//     `;
+//     const body = `You are requested to attend an official virtual meeting regarding an ongoing inquiry. Please be present at the scheduled time. Link available on dashboard.`;
+
+//     await sendBrevoEmail(email, "Meeting Invitation", generateOfficialTemplate({
+//         title: "MEETING SUMMONS", recipientName: name, subject: "OFFICIAL INQUIRY MEETING",
+//         bodyText: body, dataTable: table
+//     }));
+// };
+
+// /* =========================================================================
+//    11. 🆘 ADMIN ALERTS
+//    ========================================================================= */
+// const sendAdminAlert = async (action, user) => {
+//     const table = `
+//         ${createRow("Event", action.toUpperCase(), true)}
+//         ${createRow("User", `${user.name} (${user.email})`)}
+//         ${createRow("Role", user.role)}
+//     `;
+//     const body = `A critical security event has been logged in the system registry.`;
+
+//     await sendBrevoEmail("sushanttelekune@gmail.com", `System Alert: ${action}`, generateOfficialTemplate({
+//         title: "SYSTEM ALERT", recipientName: "Administrator", subject: "SECURITY EVENT LOGGED",
+//         bodyText: body, dataTable: table
+//     }));
+// };
+
+// module.exports = { 
+//     sendOtpEmail, 
+//     sendProfileOtpEmail,           // ✅ Added Here
+//     sendWelcomeEmail, 
+//     sendProfileUpdateSuccessEmail, 
+//     sendComplaintConfirmation, 
+//     sendStatusUpdateEmail,
+//     sendHelpTicketAck,             
+//     sendAdminReplyEmail,           
+//     sendFeedbackThankYou,          
+//     sendNoticeAlert,
+//     sendMeetingInvite,    
+//     sendAdminAlert
+// };
+
+
+
+
+
+
+
+
+
+
+
 const axios = require('axios');
 
 // 🔗 CONFIGURATION
@@ -5223,6 +5919,23 @@ const sendOtpEmail = async (email, otp) => {
 };
 
 /* =========================================================================
+   1b. 🔐 PROFILE EDIT OTP
+   ========================================================================= */
+const sendProfileOtpEmail = async (email, otp) => {
+    const table = `
+        ${createRow("OTP Code", `<span style="font-size:18px; letter-spacing:2px;">${otp}</span>`, true)}
+        ${createRow("Validity", "10 Minutes")}
+        ${createRow("Purpose", "Profile Update Authorization")}
+    `;
+    const body = `We received a request to edit the profile details associated with your CrimeTrack account. Please use the One-Time Password (OTP) below to authorize this action. If you did not initiate this request, please ignore this email.`;
+    
+    await sendBrevoEmail(email, "Profile Edit Verification Code", generateOfficialTemplate({
+        title: "SECURITY VERIFICATION", recipientName: "User", subject: "PROFILE EDIT AUTHORIZATION",
+        bodyText: body, dataTable: table
+    }));
+};
+
+/* =========================================================================
    2. 👋 WELCOME / REGISTRATION
    ========================================================================= */
 const sendWelcomeEmail = async (email, name, password) => {
@@ -5240,7 +5953,7 @@ const sendWelcomeEmail = async (email, name, password) => {
 };
 
 /* =========================================================================
-   3. 📝 PROFILE UPDATE ALERT (New Function)
+   3. 📝 PROFILE UPDATE ALERT 
    ========================================================================= */
 const sendProfileUpdateSuccessEmail = async (email, name) => {
     const table = `
@@ -5257,7 +5970,7 @@ const sendProfileUpdateSuccessEmail = async (email, name) => {
 };
 
 /* =========================================================================
-   4. ⭐ FEEDBACK / REVIEW ACKNOWLEDGEMENT (New Function - Fixed Bug)
+   4. ⭐ FEEDBACK / REVIEW ACKNOWLEDGEMENT 
    ========================================================================= */
 const sendFeedbackThankYou = async (email, name, type) => {
     const table = `
@@ -5274,7 +5987,7 @@ const sendFeedbackThankYou = async (email, name, type) => {
 };
 
 /* =========================================================================
-   5. 🎫 HELP TICKET ACKNOWLEDGEMENT (New Function - Fixed Bug)
+   5. 🎫 HELP TICKET ACKNOWLEDGEMENT 
    ========================================================================= */
 const sendHelpTicketAck = async (email, name, ticketId) => {
     const table = `
@@ -5291,7 +6004,7 @@ const sendHelpTicketAck = async (email, name, ticketId) => {
 };
 
 /* =========================================================================
-   6. 💬 SUPPORT REPLY FROM ADMIN (New Function - Fixed Bug)
+   6. 💬 SUPPORT REPLY FROM ADMIN 
    ========================================================================= */
 const sendAdminReplyEmail = async (email, name, ticketId, replyMessage) => {
     const table = `
@@ -5361,20 +6074,30 @@ const sendNoticeAlert = async (email, name, senderDetails, type) => {
 };
 
 /* =========================================================================
-   10. 📹 MEETING INVITE
+   10. 📹 MEETING INVITE (✅ MODIFIED FOR POLICE/CITIZEN LOGIC)
    ========================================================================= */
-const sendMeetingInvite = async (email, name, meetingDetails) => {
+const sendMeetingInvite = async (email, name, meetingDetails, meetingType) => {
     const meetingTime = new Date(meetingDetails.scheduledTime).toLocaleString('en-IN', { dateStyle: 'full', timeStyle: 'short' });
     const table = `
         ${createRow("Topic", meetingDetails.title, true)}
         ${createRow("Time", meetingTime)}
         ${createRow("Mode", "Online Video Conference")}
     `;
-    const body = `You are requested to attend an official virtual meeting regarding an ongoing inquiry. Please be present at the scheduled time. Link available on dashboard.`;
+
+    // Dynamic Logic Based on Meeting Type
+    const isPolice = meetingType === "Police";
+    const subjectTitle = isPolice ? "WORK-RELATED INTERNAL BRIEFING" : "OFFICIAL INQUIRY MEETING";
+    const headerTitle = isPolice ? "INTERNAL BRIEFING SCHEDULED" : "MEETING SUMMONS";
+    const bodyContent = isPolice 
+        ? `You have been scheduled for an internal police briefing regarding ongoing case matters. Please be present at the scheduled time. Access the link via your officer dashboard.` 
+        : `You are requested to attend an official virtual meeting regarding an ongoing inquiry. Please be present at the scheduled time. Link available on dashboard.`;
 
     await sendBrevoEmail(email, "Meeting Invitation", generateOfficialTemplate({
-        title: "MEETING SUMMONS", recipientName: name, subject: "OFFICIAL INQUIRY MEETING",
-        bodyText: body, dataTable: table
+        title: headerTitle, 
+        recipientName: name, 
+        subject: subjectTitle,
+        bodyText: bodyContent, 
+        dataTable: table
     }));
 };
 
@@ -5397,13 +6120,14 @@ const sendAdminAlert = async (action, user) => {
 
 module.exports = { 
     sendOtpEmail, 
+    sendProfileOtpEmail,           
     sendWelcomeEmail, 
-    sendProfileUpdateSuccessEmail, // ✅ Correct Function
+    sendProfileUpdateSuccessEmail, 
     sendComplaintConfirmation, 
     sendStatusUpdateEmail,
-    sendHelpTicketAck,             // ✅ Correct Function
-    sendAdminReplyEmail,           // ✅ Correct Function
-    sendFeedbackThankYou,          // ✅ Correct Function
+    sendHelpTicketAck,             
+    sendAdminReplyEmail,           
+    sendFeedbackThankYou,          
     sendNoticeAlert,
     sendMeetingInvite,    
     sendAdminAlert
