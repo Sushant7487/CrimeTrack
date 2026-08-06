@@ -196,8 +196,6 @@
 
 
 
-
-
 const getLegalAdvice = async (req, res) => {
   const { message } = req.body;
 
@@ -219,20 +217,28 @@ const getLegalAdvice = async (req, res) => {
     // ---------------------------------------------------------
     console.log(`🔹 Using API Key ending in: ...${apiKey.slice(-4)}`);
     
-    // Auto-detect logic same as before...
     const modelsUrl = `https://generativelanguage.googleapis.com/v1beta/models?key=${apiKey}`;
     const modelsResponse = await fetch(modelsUrl);
     const modelsData = await modelsResponse.json();
 
-    let activeModel = "gemini-2.5-flash-lite"; // Default
+    let availableModelsRaw = [];
+    let fallbackModelsList = [];
 
     if (modelsData.models) {
-      const validModel = modelsData.models.find(m => 
-        m.name.includes("gemini") && 
-        m.supportedGenerationMethods.includes("generateContent")
-      );
-      if (validModel) activeModel = validModel.name.replace("models/", "");
+      availableModelsRaw = modelsData.models.map(m => m.name);
+      fallbackModelsList = modelsData.models
+        .filter(m => m.name.includes("gemini") && m.supportedGenerationMethods && m.supportedGenerationMethods.includes("generateContent"))
+        .map(m => m.name.replace("models/", ""));
+
+      console.log("=================================================");
+      console.log("📋 AVAILABLE MODELS:");
+      modelsData.models.forEach((m, index) => {
+        console.log(`${index + 1}. ${m.name}`);
+      });
+      console.log("=================================================");
     }
+
+    let activeModel = "gemini-2.5-flash-lite"; // Default
 
     // ---------------------------------------------------------
     // STEP 2: THE MASTER PROMPT (Detailed Knowledge Base)
@@ -302,32 +308,49 @@ You possess deep knowledge of Indian Laws. Use these sections to guide users:
     // ---------------------------------------------------------
     // STEP 3: SEND QUERY
     // ---------------------------------------------------------
-    const chatUrl = `https://generativelanguage.googleapis.com/v1beta/models/${activeModel}:generateContent?key=${apiKey}`;
+    const modelsToTry = [activeModel, ...fallbackModelsList.filter(m => m !== activeModel)];
+    let responseData = null;
 
-    const payload = {
-      contents: [{
-        parts: [{
-          text: `${projectInfo}\n\nUSER QUERY: "${message}"\n\nAnswer (in helpful English/Hindi mix if needed):`
+    for (const currentModel of modelsToTry) {
+      console.log(`🚀 Testing Model: ${currentModel}`);
+      
+      const chatUrl = `https://generativelanguage.googleapis.com/v1beta/models/${currentModel}:generateContent?key=${apiKey}`;
+
+      const payload = {
+        contents: [{
+          parts: [{
+            text: `${projectInfo}\n\nUSER QUERY: "${message}"\n\nAnswer (in helpful English/Hindi mix if needed):`
+          }]
         }]
-      }]
-    };
+      };
 
-    console.log(`🔹 Sending Query to: ${activeModel}...`);
+      const response = await fetch(chatUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(payload)
+      });
 
-    const response = await fetch(chatUrl, {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify(payload)
-    });
+      const data = await response.json();
 
-    const data = await response.json();
-
-    if (data.error) {
-      console.error("🔥 Google API Error:", JSON.stringify(data.error, null, 2));
-      return res.status(500).json({ message: "AI Error", error: data.error.message });
+      if (data.error) {
+        console.error(`❌ Model failed: ${currentModel} | Reason: ${data.error.message}`);
+        continue; // Proceed to try the next model in the array
+      } 
+      
+      console.log(`✅ Model succeeded: ${currentModel}`);
+      responseData = data;
+      break; // Successfully generated content, exit the retry loop
     }
 
-    const replyText = data.candidates?.[0]?.content?.parts?.[0]?.text || "I'm sorry, I couldn't generate a response.";
+    if (!responseData) {
+      console.error("🔥 All compatible Gemini models failed or returned 404.");
+      return res.status(500).json({
+        message: "No compatible Gemini model found.",
+        availableModels: availableModelsRaw
+      });
+    }
+
+    const replyText = responseData.candidates?.[0]?.content?.parts?.[0]?.text || "I'm sorry, I couldn't generate a response.";
 
     console.log("✅ AI Response Sent");
     res.status(200).json({ reply: replyText });
